@@ -1,6 +1,3 @@
-/**
- * 
- */
 package main;
 
 import java.util.ArrayList;
@@ -10,15 +7,12 @@ import java.util.Scanner;
 
 /**
  * @author Landon Gaddy
+ * @author Robert Kenney
  *
  */
 public class Dice {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Random rand = new Random();
 		Scanner scan = new Scanner(System.in);
 		ArrayList<Integer> attack;
@@ -55,9 +49,12 @@ public class Dice {
 				System.out.println();
 			} catch(Exception e) {
 				System.out.println("Something bad happened");
+				scan.close();
+				System.exit(1);
 			}
 			
 		}
+		
 	}
 
 }
