@@ -1,3 +1,9 @@
+/**
+ * @author Kiran Rao
+ * Algorithm based on java code written by Landon Gaddy and Robert Kenney
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -14,7 +20,7 @@ int main(int argc, char *argv[]) {
 
     //Flags
     bool maxTroops = false;
-    bool verbose = true;
+    bool verbose = false;
 
     if ( argc > 2 && strcmp(argv[1], "help") == 0) {
         printf("Usage: ./riskDiceRoll [-m] (Max out troops every roll) [-v] verbose output\n");
@@ -26,7 +32,7 @@ int main(int argc, char *argv[]) {
             maxTroops = true;
         }
         if (strcmp(argv[i], "-v") == 0) {
-            verbose = false;
+            verbose = true;
         }
     }
 
@@ -170,6 +176,7 @@ int main(int argc, char *argv[]) {
 
         if ( attackTroopsTotal == 1 ) {
             printf("Attackers Depleted\n");
+            printf("%d Defense troops left\n", defenseTroopsTotal);
             free(attackTroops);
             free(defendTroops);
             return 0;
@@ -178,6 +185,7 @@ int main(int argc, char *argv[]) {
             free(attackTroops);
             free(defendTroops);
             printf("Defense Depeleted\nAttack Wins\n");
+            printf("%d Attack troops left\n", attackTroopsTotal);
             return 0;
         }
 
@@ -228,6 +236,7 @@ int main(int argc, char *argv[]) {
             }
             break;
         }
+        
     }
     return 0;
 }
